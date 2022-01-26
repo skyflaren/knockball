@@ -1,3 +1,4 @@
+#!/usr/bin/env nodejs
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
