@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Knockball</title>
+    <link rel="icon" href="img/favicon.png"><script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body style="background-image: url('/assets/sprites/spr_background.png')">
+    <canvas height="825" width="1500" id="screen" style=""></canvas>
+    <div class="controls-wrapper">
+      <ul id="events"></ul>
+      <div class="controls">
+        <div class="chat-wrapper">
+          <form id="chat-form">
+            <input id="chat" autocomplete="off" title="chat"/>
+            <button id="say">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="src/client.js"></script>
+
+    <script src="src/vector2.js"></script>
+    <script src="src/arrow.js"></script>
+    <script src="src/buttonstate.js"></script>
+    <script src="src/mouse.js"></script>
+    <script src="src/canvas.js"></script>
+    <script src="src/color.js"></script>
+    <script src="src/assets.js"></script>
+    <script src="src/ball.js"></script>
+    <script src="src/gameworld.js"></script>
+    <script src="src/game.js"></script>
+
+    <script type="text/javascript">
+      loadAssets(Knockball.start);
+
+    </script>
+
+  </body>
+</html>
