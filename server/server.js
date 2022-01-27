@@ -18,7 +18,7 @@ io.on('connection', (sock) => {
     if(hashes[curPlayer] == cookie){
       sock.emit("message", String("" + id +  " " + length + " " + rotation));
       curPlayer ^= 1;
-      sock.emit("message", String("== It is now Player " + (curPlayer+1) + "'s turn. =="));
+      sock.emit("message", String("= It is now Player " + (curPlayer+1) + "'s turn. ="));
     }
     else{
       // sock.emit("message", "hacking :(");
@@ -40,6 +40,7 @@ io.on('connection', (sock) => {
 
     sock.emit('message', '<b style="color: navy">== Welcome to Knockball! ==</b>');
     sock.emit('message', 'The goal is simple: alternating turns, knock all your opponents off the iceberg, while avoid falling into the water yourself! Take turns launching your elves by left-clicking and dragging in the direction you desire. Last one standing wins!');
+    sock.emit('message', 'Red goes first:');
 
 
 
