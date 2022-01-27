@@ -1,6 +1,6 @@
 function Game(){
     this.selected = false;
-    // this.turn = 0;
+    this.turn = 0;
 }
 
 Game.prototype.init = function(){

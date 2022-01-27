@@ -19,26 +19,25 @@ function Ball (id, position, color){
 
 Ball.prototype.pending = function (delta){
     if(Mouse.left.down){
-        if(!Game.selected & this.clicked()){
+        if(!Knockball.selected & this.clicked()){
             this.arrow = new Arrow(this.position.x, this.position.y);
-            Game.selected = true;
+            Knockball.selected = true;
             this.selected = true;
             this.arrow.draw();
         }
-        else if(Game.selected && this.selected){
+        else if(Knockball.selected && this.selected){
             this.arrow.update();
             this.arrow.draw();
         }
     }
     else if(this.selected){
-        onSendMove(this.id, this.arrow.length, this.arrow.rotation);
-        // this.shoot(this.arrow.length*100, this.arrow.rotation);
+        // onSendMove(this.id, this.arrow.length, this.arrow.rotation);
         this.shoot(this.arrow.length*POWER_CONSTANT, this.arrow.rotation);
         
         this.selected = false;
-        Game.selected = false;
-        // GameWorld.turn = (GameWorld.turn == 1 ? 0 : 1);
-        // console.log(GameWorld.turn);
+        Knockball.selected = false;
+        Knockball.turn ^= 1;
+        onSendMove();
     }
     this.arrow.update();
 }

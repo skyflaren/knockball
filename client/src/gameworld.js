@@ -73,9 +73,7 @@ GameWorld.prototype.update = function (){
 
 		for(let i = 0; i < this.balls.length; i++){
 			if(Math.ceil(this.balls[i].valid) == 0){
-				if(!this.ballsMoving()){
-				// if(i % 2 == this.turn && !this.ballsMoving()){
-					// console.log(this.turn);
+				if(i % 2 == Knockball.turn && !this.ballsMoving()){
 					this.balls[i].pending(DELTA);
 				}
 				this.balls[i].update(DELTA);
@@ -110,11 +108,13 @@ GameWorld.prototype.update = function (){
 					let b = this.balls[i], bx = b.position.x, by = b.position.y;
 					if(bx < this.table.LeftX || bx > this.table.RightX|| by < this.table.TopY || by > this.table.BottomY ){
 						b.valid = 1;
+						log((i % 2==0 ? "= A Red" : "= A Blue") + " elf has been knocked out! " + (i % 2==0 ? red-1 : blue-1) + " more remain. =");
 					}
-					for(let i = 0; i < this.holes.length; i++){
-						let th = this.holes[i];
+					for(let j = 0; j < this.holes.length; j++){
+						let th = this.holes[j];
 						if(bx > th[0] && by > th[1] && bx < th[2] && by < th[3]){
 							b.valid = 1;
+							log((i % 2==0 ? "= A Red" : "= A Blue") + " elf has been knocked out! " + (i % 2==0 ? red-1 : blue-1) + " more remain. =");
 						}
 					}
 				}

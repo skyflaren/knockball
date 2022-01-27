@@ -48,5 +48,5 @@ function onSendMove(id, length, rot){
     sock.on('cookie', save); // what happens when you get a 'cookie'
     sock.on('moveValidated', move);
 
-    document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
+    // document.querySelector('#chat-form').addEventListener('submit', onChatSubmitted(sock));
 })();
